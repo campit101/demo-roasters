@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "ONNXRUNTIME_NODE_INSTALL=skip npm ci",
+  "regions": ["lhr1"],
+  "git": {
+    "deploymentEnabled": false
+  },
+  "crons": [{ "path": "/api/cron/nightly", "schedule": "0 3 * * *" }]
+}

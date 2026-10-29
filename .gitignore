@@ -1,0 +1,50 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# builds
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+# secrets: never commit
+.env
+.env.*
+!.env.example
+
+# hosting and tools
+.vercel
+/.neon
+
+# test output (kept out of the public repo)
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/coverage
+/lab/
+*.trace.zip
+
+# logs and OS files
+npm-debug.log*
+*.log
+.DS_Store
+Thumbs.db
+*.pem
+
+.next-verify/
+
+# Embedding model files (fetched and fingerprint-checked by scripts/fetch-model.ts)
+/models/
+.next-e2e/
+.lighthouse/
+
+# Managed by next dev (its agent notes); regenerated on each dev run, so not committed
+AGENTS.md
+
+# Cam's full-size Nano Banana source photos (processed copies go to public/products)
+/photo-source/
+

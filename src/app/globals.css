@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* Tokens from DESIGN.md (round 3, 25 Oct 2026). Light by default; dark only when chosen with the switch. */
+:root,
+[data-theme="light"] {
+  --paper: #ffffff;
+  --sand: #f4f1eb;
+  --surface: #ffffff;
+  --ink: #141210;
+  --ink-soft: #5b544d;
+  --line: #e7e2d9;
+  --accent: #c2410c;
+  --banner: #141210;
+  --banner-ink: #ffffff;
+  --roast-light: #d9a066;
+  --roast-medium: #a86a3d;
+  --roast-medium-dark: #7a4528;
+  --roast-dark: #3a2116;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #111010;
+  --sand: #1b1917;
+  --surface: #1b1917;
+  --ink: #f3f0ea;
+  --ink-soft: #b3aaa0;
+  --line: #302c28;
+  --accent: #f08a5d;
+  --banner: #f3f0ea;
+  --banner-ink: #111010;
+  --roast-light: #e2b07c;
+  --roast-medium: #c08356;
+  --roast-medium-dark: #a5684a;
+  --roast-dark: #8a5a42;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-banner: var(--banner);
+  --color-banner-ink: var(--banner-ink);
+  --font-sans: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 16px;
+}
+
+html {
+  background: var(--paper);
+  /* The header sticks to the top: keep focused and linked-to items below it. */
+  scroll-padding-top: 8rem;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* On phones the product page's add-to-basket bar is fixed to the bottom: keep focused items above it. */
+@media (max-width: 767px) {
+  html {
+    scroll-padding-bottom: 6rem;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Headings: bold and tight; tracking tightens as size grows. */
+h1,
+h2,
+h3 {
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+@layer components {
+  /* Small spaced-capital labels above names and sections. */
+  .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* Buttons: fully rounded pills. Primary is ink on paper (inverts in dark). */
+  .btn {
+    display: inline-flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0 1.5rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition:
+      background-color 150ms ease-out,
+      color 150ms ease-out,
+      border-color 150ms ease-out,
+      opacity 150ms ease-out;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-primary:hover {
+    opacity: 0.86;
+  }
+  .btn-primary:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .btn-secondary {
+    border: 1px solid var(--ink);
+    color: var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* Chips: grind choices, filter pills, taste links. */
+  .chip {
+    display: inline-flex;
+    min-height: 2.5rem;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition:
+      border-color 150ms ease-out,
+      background-color 150ms ease-out,
+      color 150ms ease-out;
+  }
+  .chip:hover {
+    border-color: var(--ink);
+  }
+  .chip[aria-pressed="true"],
+  .chip[aria-checked="true"],
+  .chip-on {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+  }
+}
