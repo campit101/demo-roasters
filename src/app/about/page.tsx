@@ -28,7 +28,7 @@ export default function AboutPage() {
       </p>
       <h2>Also by {OWNER_NAME}</h2>
       <p>
-        <a href="https://aipolisher.app">Polisher</a>, a writing tool.
+        <a href="https://polisher-demo.vercel.app">Polisher</a>, a writing tool (also a demo).
       </p>
     </Prose>
   );
