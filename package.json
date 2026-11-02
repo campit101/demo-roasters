@@ -1,0 +1,74 @@
+{
+  "name": "demo-roasters",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "secret-scan": "node scripts/secret-scan.mjs",
+    "verify": "node scripts/verify.mjs",
+    "drift": "node scripts/drift.mjs",
+    "setup:secrets": "node scripts/run-wizard.mjs",
+    "push:env": "node scripts/push-env.mjs",
+    "eval:tuning": "vitest run --config vitest.eval.config.mts --silent=false tests/search/tuning.eval.ts",
+    "eval:semantic": "vitest run --config vitest.eval.config.mts --silent=false tests/search/semantic.eval.ts",
+    "fetch:model": "node scripts/fetch-model.ts",
+    "db:migrate": "node scripts/migrate.ts",
+    "db:check": "node scripts/db-check.ts",
+    "vercel-build": "node scripts/fetch-model.ts && node scripts/migrate.ts && node scripts/seed.ts && node scripts/seed-demo-accounts.ts && next build",
+    "test:integration": "vitest run --config vitest.integration.config.mts",
+    "db:seed": "node scripts/seed.ts",
+    "db:seed-accounts": "node scripts/seed-demo-accounts.ts",
+    "e2e": "playwright test",
+    "setup:hf": "node scripts/add-hf-token.mjs",
+    "photos:generate": "node scripts/generate-all-photos.ts",
+    "photos:process": "node scripts/process-photos.ts",
+    "eval:locked": "vitest run --config vitest.eval.config.mts --silent=false tests/search/locked.eval.ts"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.3.1",
+    "@vercel/functions": "3.9.11",
+    "better-auth": "1.7.7",
+    "drizzle-orm": "0.45.4",
+    "next": "16.4.2",
+    "pg": "8.23.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "0.0.1",
+    "stripe": "23.0.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.64.0",
+    "@secretlint/secretlint-rule-preset-recommend": "13.0.7",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "drizzle-kit": "0.31.11",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.2",
+    "lighthouse": "13.5.0",
+    "secretlint": "13.0.7",
+    "sharp": "0.35.5",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.4"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "overrides": {
+    "playwright-core": "1.64.0",
+    "@vercel/cli-config": {
+      "zod": "4.6.7"
+    }
+  }
+}
