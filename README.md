@@ -2,7 +2,7 @@
 
 Demo Roasters is a fictional UK specialty coffee shop, built as a portfolio demo. It sells nothing and takes no real money. Payments run on Stripe's test mode only, and every page says "Demo store: test payments only, nothing is sold". It shows a product catalogue, natural-language search, a basket and checkout, customer accounts and an admin dashboard. All 40 products, farms and people are invented.
 
-A portfolio project by Cam, who led it and made the product, design and business decisions.
+A portfolio project by Cameron Pittaway. I made the product, design and business decisions.
 
 ## Live demo
 
