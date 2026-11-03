@@ -1,5 +1,11 @@
 # Demo Roasters
 
+**Problem:** A small roastery needs an online shop where customers find coffee by taste, and the owner can manage stock and orders.
+
+**What I built:** A 40-product shop with plain-English search, Stripe test checkout, customer accounts and an admin dashboard.
+
+**Result:** Lighthouse mobile accessibility is 100 and performance is 91 to 98 on the pages tested. 224 unit, 54 integration and 136 end-to-end tests pass. The search test passed 16 of 20 queries against a target of 18. It is a demo with no real customers. Read the [case study](CASE-STUDY.md).
+
 Demo Roasters is a fictional UK specialty coffee shop, built as a portfolio demo. It sells nothing and takes no real money. Payments run on Stripe's test mode only, and every page says "Demo store: test payments only, nothing is sold". It shows a product catalogue, natural-language search, a basket and checkout, customer accounts and an admin dashboard. All 40 products, farms and people are invented.
 
 A portfolio project by Cameron Pittaway. I made the product, design and business decisions.
